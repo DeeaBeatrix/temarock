@@ -1,25 +1,28 @@
 const gameForm = document.querySelector('.game-form');
 const buttonSelect = document.querySelector('.game-button');
 const resultFinal = document.querySelector('.game-result');
-
+// const selectOne = document.querySelector('.first-selection');
+// const selectTwo = document.querySelector('.second-selection');
 
 const finalResult = () => {
+  console.log('text')
 
-  // e.preventDefault();
-
-  // const formData = new FormData(gameForm);
+  const formData = new FormData(gameForm);
   
-  // let selectOne = formData.get('first-selection');
-  // let selectTwo = formData.get('second-selection');
+  let selectOne = formData.get('first-selection');
+  let selectTwo = formData.get('second-selection');
 
   // let selectOne = document.querySelector('.first-selection');
   // let selectTwo = document.querySelector('.second-selection');
 
-  let selectOne = document.querySelector('.first-selection').value;
-  let selectTwo = document.querySelector('.second-selection').value;
+  // const playerOne = selectOne.value;
+  // const playerTwo = selectTwo.value;
+
+  // let selectOne = document.querySelector('.first-selection').value;
+  // let selectTwo = document.querySelector('.second-selection').value;
 
   if (selectOne === selectTwo) {
-    resultFinal.innerText = 'Egalitate';
+    return 'Egalitate';
   }
 
   if (selectOne === 'foarfeca') {
@@ -77,13 +80,11 @@ const finalResult = () => {
   }
 };
 
-gameForm.addEventListener('submit', finalResult);
+const final = (e) => {
+  e.preventDefault();
 
-
-const final = () => {
   resultFinal.style.display = 'block';
-  final.innerText = finalResult.value;
-
+  resultFinal.innerText = finalResult();
 };
 
-buttonSelect.addEventListener('click', final);
+gameForm.addEventListener('submit', final);
