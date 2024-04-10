@@ -9,14 +9,17 @@ const finalResult = () => {
 
   // const formData = new FormData(gameForm);
   
-  // let selectOne = formData.get('.first-selection');
-  // let selectTwo = formData.get('.second-selection');
+  // let selectOne = formData.get('first-selection');
+  // let selectTwo = formData.get('second-selection');
 
-  let selectOne = document.querySelector('.first-selection');
-  let selectTwo = document.querySelector('.second-selection');
+  // let selectOne = document.querySelector('.first-selection');
+  // let selectTwo = document.querySelector('.second-selection');
+
+  let selectOne = document.querySelector('.first-selection').value;
+  let selectTwo = document.querySelector('.second-selection').value;
 
   if (selectOne === selectTwo) {
-    return "Egalitate"
+    resultFinal.innerText = 'Egalitate';
   }
 
   if (selectOne === 'foarfeca') {
@@ -24,7 +27,7 @@ const finalResult = () => {
       return 'Player 1 a castigat';
     }
     if(selectTwo === 'piatra') {
-      return 'Player 2 a castigat'
+      return 'Player 2 a castigat';
     }
   } 
   
@@ -74,7 +77,7 @@ const finalResult = () => {
   }
 };
 
-gameForm.addEventListener('.submit', finalResult);
+gameForm.addEventListener('submit', finalResult);
 
 
 const final = () => {
@@ -83,4 +86,4 @@ const final = () => {
 
 };
 
-buttonSelect.addEventListener('.click', final);
+buttonSelect.addEventListener('click', final);
